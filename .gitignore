@@ -1,0 +1,4 @@
+build/
+kubegpt.egg-info/
+dist/
+__pycache__
