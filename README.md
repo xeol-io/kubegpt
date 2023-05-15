@@ -1,5 +1,7 @@
 # kubegpt
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/xeol-io/xeol/blob/main/LICENSE)
+
 A command-line tool for using human language to interact with Kubernetes. Powered by OpenAI/GPT.
 
 kubegpt will take your input like
