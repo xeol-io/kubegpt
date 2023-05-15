@@ -9,6 +9,7 @@ import warnings
 def setup_cli():
     parser = argparse.ArgumentParser(description="kubegpt")
     parser.add_argument("prompt", help="The question to ask your Kubernetes cluster")
+    parser.add_argument("--version", action="version", version="0.0.6", help="Print the version and exit")
     return parser.parse_args()
 
 
@@ -24,4 +25,8 @@ def main():
 
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
+    if not args.prompt.strip():
+        raise ValueError("Prompt cannot be empty.")
+
     prompt(args.prompt)
+

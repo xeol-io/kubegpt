@@ -4,7 +4,7 @@ setup(
     name="kubegpt",
     author="Benji Visser",
     author_email="benji@xeol.io",
-    version="0.0.4",
+    version="0.0.6",
     description="Using human language to interact with Kubernetes",
     license="MIT",
     packages=find_packages(),
