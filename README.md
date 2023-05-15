@@ -42,6 +42,14 @@ Final Answer: No, you are not using GlusterFS as a storage class.
 pip install kubegpt
 ```
 
+Setup your OpenAI API key
+
+```
+export OPENAI_API_KEY=xxxx
+
+# NOTE: you will need to add a credit card to the OpenAI dashboard for this to work.
+```
+
 And then ask away!
 
 ```
