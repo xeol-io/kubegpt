@@ -42,7 +42,7 @@ Final Answer: No, you are not using GlusterFS as a storage class.
 pip install kubegpt
 ```
 
-And then run
+And then ask away!
 
 ```
 kubegpt "What kubernetes context am I using?"
