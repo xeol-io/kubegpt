@@ -36,6 +36,8 @@ Final Answer: No, you are not using GlusterFS as a storage class.
 > Finished chain.
 ```
 
+The data you see in `Observation` is REAL DATA from whatever Kubernetes cluster is currently set in your kubectl context.
+
 ## Installation
 
 ```
