@@ -4,7 +4,7 @@ setup(
     name="kubegpt",
     author="Benji Visser",
     author_email="benji@xeol.io",
-    version="0.0.6",
+    version="0.0.7",
     description="Using human language to interact with Kubernetes",
     license="MIT",
     packages=find_packages(),
@@ -18,5 +18,5 @@ setup(
         "openai",
         "langchain",
     ],
-    url="https://github.com/xeol-io/kubegpt"
+    url="https://github.com/xeol-io/kubegpt",
 )

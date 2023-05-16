@@ -9,13 +9,19 @@ import warnings
 def setup_cli():
     parser = argparse.ArgumentParser(description="kubegpt")
     parser.add_argument("prompt", help="The question to ask your Kubernetes cluster")
-    parser.add_argument("--version", action="version", version="0.0.6", help="Print the version and exit")
+    parser.add_argument(
+        "--version",
+        action="version",
+        version="0.0.7",
+        help="Print the version and exit",
+    )
     return parser.parse_args()
 
 
 def main():
     # supress the warning "The shell tool has no safeguards by default"
     warnings.filterwarnings("ignore")
+
     args = setup_cli()
 
     if "OPENAI_API_KEY" not in os.environ:
@@ -29,4 +35,3 @@ def main():
         raise ValueError("Prompt cannot be empty.")
 
     prompt(args.prompt)
-

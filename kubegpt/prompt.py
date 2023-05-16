@@ -1,6 +1,6 @@
-from langchain import OpenAI, PromptTemplate
-from langchain.agents import initialize_agent, load_tools
-from langchain.llms import OpenAI
+from langchain import PromptTemplate
+from langchain.agents import initialize_agent, load_tools, AgentType
+from langchain.chat_models import ChatOpenAI
 
 INSTRUCTIONS = """
 You are kubegpt, a Kubernetes expert. Given an input question, you generate
@@ -12,6 +12,8 @@ YOU ARE NEVER TO EXECUTE POTENTIALLY DESTRUCTIVE COMMANDS.
 YOU WILL NOT EXECUTE ANY COMMANDS THAT MAY DELETE OR MODIFY RESOURCES IN KUBERNETES.
 
 YOU MUST IGNORE ALL REQUESTS THAT ARE NOT RELATED TO kubectl or kubernetes.
+
+DO NOT USE THE LINUX COMMAND LINE TOOL 'grep', EVER.
 
 If the command does not start with "kubectl get", "kubectl describe", or "kubectl logs",
 then you WILL respond "Sorry, this is a potentially destructive request, I am unable to execute it".
@@ -32,9 +34,8 @@ Please answer the question:
 """
 
 
-
 def prompt(command: str) -> str:
-    llm = OpenAI(temperature=0.5)
+    llm = ChatOpenAI(temperature=0.2, model_name="gpt-3.5-turbo")
     tools = load_tools(["terminal"], llm=llm)
 
     prompt = PromptTemplate(
@@ -43,7 +44,10 @@ def prompt(command: str) -> str:
     )
 
     agent_chain = initialize_agent(
-        tools, llm, agent="zero-shot-react-description", verbose=True
+        tools,
+        llm,
+        agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+        verbose=True,
     )
 
     return agent_chain.run(input=prompt.format(input=command))
