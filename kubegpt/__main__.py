@@ -31,6 +31,10 @@ def main():
 
     openai.api_key = os.getenv("OPENAI_API_KEY")
 
+    # support for generic openai drop-in replacement, like localai
+    if "OPENAI_API_BASE" not in os.environ:
+        openai.base_url = os.getenv("OPENAI_API_BASE")
+        
     if not args.prompt.strip():
         raise ValueError("Prompt cannot be empty.")
 

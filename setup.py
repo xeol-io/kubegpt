@@ -17,6 +17,7 @@ setup(
     install_requires=[
         "openai",
         "langchain",
+        "langchain-experimental",
     ],
     url="https://github.com/xeol-io/kubegpt",
 )
