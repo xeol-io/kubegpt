@@ -52,6 +52,14 @@ export OPENAI_API_KEY=xxxx
 # NOTE: you will need to add a credit card to the OpenAI dashboard for this to work.
 ```
 
+Setup an alternative OpenAI API-compatible drop-in relplacement, like LocalAI (optional)
+
+```
+export OPENAI_API_base=http://localhost:8080
+
+# NOTE: a model named "gpt-3.5-turbo" must be present. 
+```
+
 And then ask away!
 
 ```
